@@ -321,6 +321,51 @@ public class RomanPrinterTest {
         );
     }
 
+    @Test
+    public void testPrint_FiveHundredAndFourteen() {
+
+        assertRomanAsciiArtEquals(
+            "DXIV",
+            " _____   __   __  _____  __      __\n" +
+            "|  __ \\  \\ \\ / / |_   _| \\ \\    / /\n" +
+            "| |  | |  \\ V /    | |    \\ \\  / / \n" +
+            "| |  | |   > <     | |     \\ \\/ /  \n" +
+            "| |__| |  / . \\   _| |_     \\  /   \n" +
+            "|_____/  /_/ \\_\\ |_____|     \\/    ", 
+            514
+        );
+    }
+
+    @Test
+    public void testPrint_NineHundredAndFive() {
+
+        assertRomanAsciiArtEquals(
+            "CMV",
+            "  _____   __  __  __      __\n" +
+            " / ____| |  \\/  | \\ \\    / /\n" +
+            "| |      | \\  / |  \\ \\  / / \n" +
+            "| |      | |\\/| |   \\ \\/ /  \n" +
+            "| |____  | |  | |    \\  /   \n" +
+            " \\_____| |_|  |_|     \\/    ", 
+            905
+        );
+    }
+
+    @Test
+    public void testConvert_OneThousand() {
+        
+        assertRomanAsciiArtEquals(
+            "M",
+            " __  __ \n" +
+            "|  \\/  |\n" +
+            "| \\  / |\n" +
+            "| |\\/| |\n" +
+            "| |  | |\n" +
+            "|_|  |_|", 
+            1000
+        );
+    }
+
     private static void assertRomanAsciiArtEquals(String roman, String asciart, int number) 
     {
         try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
