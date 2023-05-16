@@ -246,6 +246,36 @@ public class RomanPrinterTest {
         );
     }
 
+    @Test
+    public void testPrint_Ninety() {
+
+        assertRomanAsciiArtEquals(
+            "XCIX",
+            "__   __   _____   _____  __   __\n" +
+            "\\ \\ / /  / ____| |_   _| \\ \\ / /\n" +
+            " \\ V /  | |        | |    \\ V / \n" +
+            "  > <   | |        | |     > <  \n" +
+            " / . \\  | |____   _| |_   / . \\ \n" +
+            "/_/ \\_\\  \\_____| |_____| /_/ \\_\\", 
+            99
+        );
+    }  
+
+    @Test
+    public void testPrint_Hundred() {
+
+        assertRomanAsciiArtEquals(
+            "C",
+            "  _____ \n" +
+            " / ____|\n" +
+            "| |     \n" +
+            "| |     \n" +
+            "| |____ \n" +
+            " \\_____|", 
+            100
+        );
+    }
+
     private static void assertRomanAsciiArtEquals(String roman, String asciart, int number) 
     {
         try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
