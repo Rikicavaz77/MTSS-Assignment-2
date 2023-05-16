@@ -118,6 +118,36 @@ public class IntegerToRomanTest {
         assertRomanNumberEquals("L", 50);
     }
 
+    @Test
+    public void testConvert_SixtyTwo() throws RomanNumberException {
+        
+        assertRomanNumberEquals("LXII", 62);
+    }
+
+    @Test
+    public void testConvert_EightyNine() throws RomanNumberException {
+        
+        assertRomanNumberEquals("LXXXIX", 89);
+    }
+
+    @Test
+    public void testConvert_Ninety() throws RomanNumberException {
+        
+        assertRomanNumberEquals("XC", 90);
+    }
+
+    @Test
+    public void testConvert_NinetyNine() throws RomanNumberException {
+        
+        assertRomanNumberEquals("XCIX", 99);
+    }
+
+    @Test
+    public void testConvert_Hundred() throws RomanNumberException {
+        
+        assertRomanNumberEquals("C", 100);
+    }
+
     private static void assertRomanNumberEquals(String roman, int number) 
     {
         try {

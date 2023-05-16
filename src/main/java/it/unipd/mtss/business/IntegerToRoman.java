@@ -15,10 +15,10 @@ public class IntegerToRoman {
   public IntegerToRoman()
   {
     ValuesRange = new int[]{
-      50,40,10,9,5,4,1
+      100,90,50,40,10,9,5,4,1
     };  
     RomanLetters = new String[]{
-      "L","XL","X","IX","V","IV","I"
+      "C","XC","L","XL","X","IX","V","IV","I"
     };
   }
 
