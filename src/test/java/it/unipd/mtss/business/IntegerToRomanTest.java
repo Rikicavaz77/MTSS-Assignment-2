@@ -166,6 +166,24 @@ public class IntegerToRomanTest {
         assertRomanNumberEquals("D", 500);
     }
 
+    @Test
+    public void testConvert_EightHundredAndNinetyEight() {
+        
+        assertRomanNumberEquals("DCCCXCVIII", 898);
+    }
+
+    @Test
+    public void testConvert_NineHundred() {
+        
+        assertRomanNumberEquals("CM", 900);
+    }
+
+    @Test
+    public void testConvert_OneThousand() {
+        
+        assertRomanNumberEquals("M", 1000);
+    }
+
     private static void assertRomanNumberEquals(String roman, int number) 
     {
         try {
