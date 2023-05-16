@@ -88,6 +88,36 @@ public class IntegerToRomanTest {
         assertRomanNumberEquals("X", 10);
     }
 
+    @Test
+    public void testConvert_Fourteen() throws RomanNumberException {
+        
+        assertRomanNumberEquals("XIV", 14);
+    }
+
+    @Test
+    public void testConvert_Thirtynine() throws RomanNumberException {
+        
+        assertRomanNumberEquals("XXXIX", 39);
+    }
+
+    @Test
+    public void testConvert_Forty() throws RomanNumberException {
+        
+        assertRomanNumberEquals("XL", 40);
+    }
+
+    @Test
+    public void testConvert_FourtyOne() throws RomanNumberException {
+        
+        assertRomanNumberEquals("XLI", 41);
+    }
+
+    @Test
+    public void testConvert_Fifty() throws RomanNumberException {
+        
+        assertRomanNumberEquals("L", 50);
+    }
+
     private static void assertRomanNumberEquals(String roman, int number) 
     {
         try {
