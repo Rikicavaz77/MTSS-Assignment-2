@@ -47,105 +47,123 @@ public class IntegerToRomanTest {
     }
 
     @Test
-    public void testConvert_One() throws RomanNumberException {
+    public void testConvert_One() {
         
         assertRomanNumberEquals("I", 1);
     }
 
     @Test
-    public void testConvert_Two() throws RomanNumberException {
+    public void testConvert_Two() {
         
         assertRomanNumberEquals("II", 2);
     }
 
     @Test
-    public void testConvert_Four() throws RomanNumberException {
+    public void testConvert_Four() {
         
         assertRomanNumberEquals("IV", 4);
     }
     
     @Test
-    public void testConvert_Five() throws RomanNumberException {
+    public void testConvert_Five() {
         
         assertRomanNumberEquals("V", 5);
     }
 
     @Test
-    public void testConvert_Six() throws RomanNumberException {
+    public void testConvert_Six() {
         
         assertRomanNumberEquals("VI", 6);
     }
 
     @Test
-    public void testConvert_Nine() throws RomanNumberException {
+    public void testConvert_Nine() {
         
         assertRomanNumberEquals("IX", 9);
     }
 
     @Test
-    public void testConvert_Ten() throws RomanNumberException {
+    public void testConvert_Ten() {
         
         assertRomanNumberEquals("X", 10);
     }
 
     @Test
-    public void testConvert_Fourteen() throws RomanNumberException {
+    public void testConvert_Fourteen() {
         
         assertRomanNumberEquals("XIV", 14);
     }
 
     @Test
-    public void testConvert_Thirtynine() throws RomanNumberException {
+    public void testConvert_Thirtynine() {
         
         assertRomanNumberEquals("XXXIX", 39);
     }
 
     @Test
-    public void testConvert_Forty() throws RomanNumberException {
+    public void testConvert_Forty() {
         
         assertRomanNumberEquals("XL", 40);
     }
 
     @Test
-    public void testConvert_FourtyOne() throws RomanNumberException {
+    public void testConvert_FourtyOne() {
         
         assertRomanNumberEquals("XLI", 41);
     }
 
     @Test
-    public void testConvert_Fifty() throws RomanNumberException {
+    public void testConvert_Fifty() {
         
         assertRomanNumberEquals("L", 50);
     }
 
     @Test
-    public void testConvert_SixtyTwo() throws RomanNumberException {
+    public void testConvert_SixtyTwo() {
         
         assertRomanNumberEquals("LXII", 62);
     }
 
     @Test
-    public void testConvert_EightyNine() throws RomanNumberException {
+    public void testConvert_EightyNine() {
         
         assertRomanNumberEquals("LXXXIX", 89);
     }
 
     @Test
-    public void testConvert_Ninety() throws RomanNumberException {
+    public void testConvert_Ninety() {
         
         assertRomanNumberEquals("XC", 90);
     }
 
     @Test
-    public void testConvert_NinetyNine() throws RomanNumberException {
+    public void testConvert_NinetyNine() {
         
         assertRomanNumberEquals("XCIX", 99);
     }
 
     @Test
-    public void testConvert_Hundred() throws RomanNumberException {
+    public void testConvert_Hundred() {
         
         assertRomanNumberEquals("C", 100);
+    }
+
+    @Test
+    public void testConvert_ThreeHundredAndNinetyNine() {
+        
+        assertRomanNumberEquals("CCCXCIX", 399);
+    }
+
+    @Test
+    public void testConvert_FourHundred() {
+        
+        assertRomanNumberEquals("CD", 400);
+    }
+
+    @Test
+    public void testConvert_FiveHundred() {
+        
+        assertRomanNumberEquals("D", 500);
     }
 
     private static void assertRomanNumberEquals(String roman, int number) 
