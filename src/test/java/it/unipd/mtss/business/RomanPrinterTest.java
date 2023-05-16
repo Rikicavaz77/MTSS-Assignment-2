@@ -97,13 +97,117 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testPrint_WithLegalInput() throws RomanNumberException {
+    public void testPrint_One() {
+
+        assertRomanAsciiArtEquals(
+            "I",
+            " _____ \n" +
+            "|_   _|\n" +
+            "  | |  \n" +
+            "  | |  \n" +
+            " _| |_ \n" +
+            "|_____|", 
+            1
+        );
+    }  
+    
+    @Test
+    public void testPrint_Two() {
+
+        assertRomanAsciiArtEquals(
+            "II",
+            " _____   _____ \n" +
+            "|_   _| |_   _|\n" +
+            "  | |     | |  \n" +
+            "  | |     | |  \n" +
+            " _| |_   _| |_ \n" +
+            "|_____| |_____|", 
+            2
+        );
+    }
+
+    @Test
+    public void testPrint_Four() {
+
+        assertRomanAsciiArtEquals(
+            "IV",
+            " _____  __      __\n" +
+            "|_   _| \\ \\    / /\n" +
+            "  | |    \\ \\  / / \n" +
+            "  | |     \\ \\/ /  \n" +
+            " _| |_     \\  /   \n" +
+            "|_____|     \\/    ", 
+            4
+        );
+    }
+
+    @Test
+    public void testPrint_Five() {
+
+        assertRomanAsciiArtEquals(
+            "V",
+            "__      __\n" +
+            "\\ \\    / /\n" +
+            " \\ \\  / / \n" +
+            "  \\ \\/ /  \n" +
+            "   \\  /   \n" +
+            "    \\/    ", 
+            5
+        );
+    }
+
+    @Test
+    public void testPrint_Six() {
+
+        assertRomanAsciiArtEquals(
+            "VI",
+            "__      __  _____ \n" +
+            "\\ \\    / / |_   _|\n" +
+            " \\ \\  / /    | |  \n" +
+            "  \\ \\/ /     | |  \n" +
+            "   \\  /     _| |_ \n" +
+            "    \\/     |_____|", 
+            6
+        );
+    }
+
+    @Test
+    public void testPrint_Nine() {
         
+        assertRomanAsciiArtEquals(
+            "IX",
+            " _____  __   __\n" +
+            "|_   _| \\ \\ / /\n" +
+            "  | |    \\ V / \n" +
+            "  | |     > <  \n" +
+            " _| |_   / . \\ \n" +
+            "|_____| /_/ \\_\\", 
+            9
+        );
+    } 
+    
+    @Test
+    public void testPrint_Ten(){
+
+        assertRomanAsciiArtEquals(
+            "X",
+            "__   __\n" +
+            "\\ \\ / /\n" +
+            " \\ V / \n" +
+            "  > <  \n" +
+            " / . \\ \n" +
+            "/_/ \\_\\", 
+            10
+        );
+    }  
+
+    private static void assertRomanAsciiArtEquals(String roman, String asciart, int number) 
+    {
         try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
-            utilities.when(() -> IntegerToRoman.convert(1))
-                .thenReturn("I");
-            
-            assertEquals(null, RomanPrinter.print(1));
-        }       
+            utilities.when(() -> IntegerToRoman.convert(number))
+                .thenReturn(roman);
+
+            assertEquals(asciart, RomanPrinter.print(number));
+        } catch (RomanNumberException e) {};
     }
 }
