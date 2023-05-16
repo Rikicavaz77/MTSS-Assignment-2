@@ -9,6 +9,19 @@ import it.unipd.mtss.business.exceptions.RomanNumberException;
 
 public class IntegerToRoman {
 
+  static int ValuesRange[];
+  static String RomanLetters[];
+
+  public IntegerToRoman()
+  {
+    ValuesRange = new int[]{
+      10,9,5,4,1
+    };  
+    RomanLetters = new String[]{
+      "X","IX","V","IV","I"
+    };
+  }
+
   public static String convert(int number) throws RomanNumberException {
 
     if (number < 0) 
@@ -29,6 +42,17 @@ public class IntegerToRoman {
         "I, V, X, L, C, D and M only support numbers from 1 to 3999"
       );
     }
-    return null;
+    
+    StringBuilder RomanNumber = new StringBuilder();  
+      
+    for(int i = 0; i < ValuesRange.length; i++)   
+    {  
+      while(number >= ValuesRange[i])   
+      {  
+        number = number - ValuesRange[i];  
+        RomanNumber.append(RomanLetters[i]);  
+      }  
+    }  
+    return RomanNumber.toString();
   }
 }
