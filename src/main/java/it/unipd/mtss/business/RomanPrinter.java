@@ -16,7 +16,7 @@ public class RomanPrinter {
   public RomanPrinter()
   {
     positionArray = new int[100];
-    romanSymbol = new String[6][3];
+    romanSymbol = new String[6][4];
 
     positionArray[73] = 0;
     romanSymbol[0][0] = " _____ "; 
@@ -41,6 +41,14 @@ public class RomanPrinter {
     romanSymbol[3][2] = "  > <  "; 
     romanSymbol[4][2] = " / . \\ "; 
     romanSymbol[5][2] = "/_/ \\_\\";
+
+    positionArray[76] = 3;
+    romanSymbol[0][3] = " _      "; 
+    romanSymbol[1][3] = "| |     ";
+    romanSymbol[2][3] = "| |     ";
+    romanSymbol[3][3] = "| |     ";
+    romanSymbol[4][3] = "| |____ ";
+    romanSymbol[5][3] = "|______|";
   }
 
   public static String print(int num) 
