@@ -201,6 +201,51 @@ public class RomanPrinterTest {
         );
     }  
 
+    @Test
+    public void testPrint_ThirtySix() {
+
+        assertRomanAsciiArtEquals(
+            "XXXVI",
+            "__   __ __   __ __   __ __      __  _____ \n" +
+            "\\ \\ / / \\ \\ / / \\ \\ / / \\ \\    / / |_   _|\n" +
+            " \\ V /   \\ V /   \\ V /   \\ \\  / /    | |  \n" +
+            "  > <     > <     > <     \\ \\/ /     | |  \n" +
+            " / . \\   / . \\   / . \\     \\  /     _| |_ \n" +
+            "/_/ \\_\\ /_/ \\_\\ /_/ \\_\\     \\/     |_____|", 
+            36
+        );
+    }
+
+    @Test
+    public void testPrint_FourtyOne() {
+
+        assertRomanAsciiArtEquals(
+            "XLI",
+            "__   __  _        _____ \n" +
+            "\\ \\ / / | |      |_   _|\n" +
+            " \\ V /  | |        | |  \n" +
+            "  > <   | |        | |  \n" +
+            " / . \\  | |____   _| |_ \n" +
+            "/_/ \\_\\ |______| |_____|", 
+            41
+        );
+    }
+
+    @Test
+    public void testConvert_Fifty() {
+
+        assertRomanAsciiArtEquals(
+            "L",
+            " _      \n" +
+            "| |     \n" +
+            "| |     \n" +
+            "| |     \n" +
+            "| |____ \n" +
+            "|______|", 
+            50
+        );
+    }
+
     private static void assertRomanAsciiArtEquals(String roman, String asciart, int number) 
     {
         try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
