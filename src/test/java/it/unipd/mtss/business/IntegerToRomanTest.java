@@ -47,8 +47,51 @@ public class IntegerToRomanTest {
     }
 
     @Test
-    public void testConvert_WithLegalInput() throws RomanNumberException {
+    public void testConvert_One() throws RomanNumberException {
+        
+        assertRomanNumberEquals("I", 1);
+    }
 
-        assertEquals(null, IntegerToRoman.convert(1));
+    @Test
+    public void testConvert_Two() throws RomanNumberException {
+        
+        assertRomanNumberEquals("II", 2);
+    }
+
+    @Test
+    public void testConvert_Four() throws RomanNumberException {
+        
+        assertRomanNumberEquals("IV", 4);
+    }
+    
+    @Test
+    public void testConvert_Five() throws RomanNumberException {
+        
+        assertRomanNumberEquals("V", 5);
+    }
+
+    @Test
+    public void testConvert_Six() throws RomanNumberException {
+        
+        assertRomanNumberEquals("VI", 6);
+    }
+
+    @Test
+    public void testConvert_Nine() throws RomanNumberException {
+        
+        assertRomanNumberEquals("IX", 9);
+    }
+
+    @Test
+    public void testConvert_Ten() throws RomanNumberException {
+        
+        assertRomanNumberEquals("X", 10);
+    }
+
+    private static void assertRomanNumberEquals(String roman, int number) 
+    {
+        try {
+            assertEquals(roman, IntegerToRoman.convert(number));
+        } catch (RomanNumberException e) {};
     }
 }
