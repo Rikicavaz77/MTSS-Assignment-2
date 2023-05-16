@@ -276,6 +276,51 @@ public class RomanPrinterTest {
         );
     }
 
+    @Test
+    public void testPrint_TwoHundred() {
+
+        assertRomanAsciiArtEquals(
+            "CC",
+            "  _____    _____ \n" +
+            " / ____|  / ____|\n" +
+            "| |      | |     \n" +
+            "| |      | |     \n" +
+            "| |____  | |____ \n" +
+            " \\_____|  \\_____|", 
+            200
+        );
+    }
+
+    @Test
+    public void testPrint_FourHundred() {
+
+        assertRomanAsciiArtEquals(
+            "CD",
+            "  _____   _____  \n" +
+            " / ____| |  __ \\ \n" +
+            "| |      | |  | |\n" +
+            "| |      | |  | |\n" +
+            "| |____  | |__| |\n" +
+            " \\_____| |_____/ ", 
+            400
+        );
+    }
+
+    @Test
+    public void testPrint_FiveHundred() {
+
+        assertRomanAsciiArtEquals(
+            "D",
+            " _____  \n" +
+            "|  __ \\ \n" +
+            "| |  | |\n" +
+            "| |  | |\n" +
+            "| |__| |\n" +
+            "|_____/ ", 
+            500
+        );
+    }
+
     private static void assertRomanAsciiArtEquals(String roman, String asciart, int number) 
     {
         try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
