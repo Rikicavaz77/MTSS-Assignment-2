@@ -26,7 +26,7 @@ def main():
         print("Contenuto del file JSON:")
         print(issues_data)
     except json.JSONDecodeError:
-        print("Errore: il file non è in formato JSON valido.")
+        print("Errore: il file non è in un formato JSON valido.")
 
 if __name__ == "__main__":
     main()
