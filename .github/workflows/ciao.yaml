@@ -1,0 +1,29 @@
+name: Import Issues to Jira
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  import_issues:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download issues from GitHub
+      run: |
+        curl -i https://api.github.com/repos/Rikicavaz77/MTSS-Assignment-2/issues > issues.json
+
+    - name: Convert JSON to CSV
+      run: |
+        python convert_to_csv.py issues.json issues.csv
+
+    - name: Import issues to Jira
+      run: |
+        curl -X POST \
+          -H "Authorization: Bearer $JIRA_API_TOKEN" \
+          -H "Content-Type: application/json" \
+          -d @issues.csv \
+          https://argo-swe.atlassian.net//rest/api/latest/import/csv
