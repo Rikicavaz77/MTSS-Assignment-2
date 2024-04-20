@@ -23,7 +23,7 @@ jobs:
     - name: Import issues to Jira
       run: |
         curl -X POST \
-          -H "Authorization: Bearer $JIRA_API_TOKEN" \
+          -H "Authorization: Bearer $ATATT3xFfGF0WiBpzCtLPxI2-rCyF8y2HMcyQDGoSfjs7ZtlvTZ6Hj5Wc0fis4_kcvrKHVT9gLXsqbd9LUH2acNwTwcAV0sfMdOoEBT9HjDRuE40PB3IgWklZxiXu5hXyDTZd3UK17jfvKxo37ytnj4844z5JXvBw4IF4D-sBOLp55fi0g87YsE=58C1327E" \
           -H "Content-Type: application/json" \
           -d @issues.csv \
           https://argo-swe.atlassian.net//rest/api/latest/import/csv
