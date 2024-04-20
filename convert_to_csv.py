@@ -1,29 +1,32 @@
 import json
-import csv
 
-def convert_to_csv(input_file, output_file):
-    with open(input_file, 'r') as json_file:
-        data = json.load(json_file)
-
-    with open(output_file, 'w', newline='') as csv_file:
-        writer = csv.writer(csv_file)
+def parse_json_file(filename):
+    with open(filename, 'r') as file:
+        # Leggi tutte le righe del file
+        lines = file.readlines()
         
-        # Scrive l'intestazione del CSV
-        writer.writerow(['ID', 'Titolo', 'Stato', 'Creato il', 'Aggiornato il', 'URL'])
+        # Rimuovi le righe di metadati HTTP
+        json_content = [line for line in lines if line.strip().startswith("{") or line.strip().startswith("[")]
 
-        # Itera sugli issue e scrive le informazioni nel CSV
-        for issue in data:
-            writer.writerow([
-                issue['number'],
-                issue['title'],
-                issue['state'],
-                issue['created_at'],
-                issue['updated_at'],
-                issue['html_url']
-            ])
+        # Unisci le righe restanti in una stringa JSON
+        json_data = ''.join(json_content)
+
+        # Analizza la stringa JSON in un oggetto Python
+        data = json.loads(json_data)
+
+        return data
+
+def main():
+    # Specifica il percorso del file JSON
+    filename = 'issues.json'
+
+    # Utilizzo della funzione per analizzare il file JSON
+    try:
+        issues_data = parse_json_file(filename)
+        print("Contenuto del file JSON:")
+        print(issues_data)
+    except json.JSONDecodeError:
+        print("Errore: il file non è in formato JSON valido.")
 
 if __name__ == "__main__":
-    input_file = 'issues.json'  # Nome del file JSON di input
-    output_file = 'issues.csv'  # Nome del file CSV di output
-
-    convert_to_csv(input_file, output_file)
+    main()
