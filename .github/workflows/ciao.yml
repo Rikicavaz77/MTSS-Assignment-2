@@ -14,11 +14,14 @@ jobs:
 
     - name: Download issues from GitHub
       run: |
-        curl -i https://api.github.com/repos/Rikicavaz77/MTSS-Assignment-2/issues > issues.json
-      artifacts:
-        paths:
-          - issues.json
+        curl -i https://api.github.com/repos/Rikicavaz77/MTSS-Assignment-2/issues > issues.json || echo "Failed to download issues.json"
 
+    - name: Upload issues.json as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: issues
+        path: issues.json
+          
     - name: Visualizza il contenuto di issues.json
       run: cat issues.json
 
