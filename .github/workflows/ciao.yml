@@ -15,13 +15,12 @@ jobs:
     - name: Download issues from GitHub
       run: |
         curl -i https://api.github.com/repos/Rikicavaz77/MTSS-Assignment-2/issues > issues.json
+      artifacts:
+        paths:
+          - issues.json
 
     - name: Visualizza il contenuto di issues.json
       run: cat issues.json
-
-    artifacts:
-    paths:
-      - issues.json
 
     - name: Convert JSON to CSV
       run: |
