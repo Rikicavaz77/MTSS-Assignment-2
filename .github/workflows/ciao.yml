@@ -19,6 +19,9 @@ jobs:
     - name: Visualizza il contenuto di issues.json
       run: cat issues.json
 
+    - name: Move issues.json to repository root
+      run: mv issues.json $GITHUB_WORKSPACE/issues.json
+
     - name: Convert JSON to CSV
       run: |
         python convert_to_csv.py issues.json issues.csv
