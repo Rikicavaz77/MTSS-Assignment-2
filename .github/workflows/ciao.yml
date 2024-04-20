@@ -16,6 +16,9 @@ jobs:
       run: |
         curl -i https://api.github.com/repos/Rikicavaz77/MTSS-Assignment-2/issues > issues.json
 
+    - name: Visualizza il contenuto di issues.json
+      run: cat issues.json
+
     - name: Convert JSON to CSV
       run: |
         python convert_to_csv.py issues.json issues.csv
