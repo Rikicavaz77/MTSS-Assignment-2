@@ -20,4 +20,5 @@ buildNumber.properties
 .settings
 .factorypath
 
-Docs/Verbali/Esterni/*
+Candidatura/*
+RTB/Verbali/Esterni/*
