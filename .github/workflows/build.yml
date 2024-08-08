@@ -3,8 +3,8 @@ name: Build
 on:
   pull_request:
     branches: [ master ]
-  push: 
-    branches: [ main ]
+  pull_request_review: 
+    branches: [ master ]
 
 jobs:
   build:
